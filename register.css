@@ -4,7 +4,7 @@ body{
 .divone{
     background-color: rgb(255, 255, 255);
     margin: auto;
-    margin-top: 50px;
+    
     width: 250px;
     padding: 20px;
     border-radius: 8px;
@@ -37,4 +37,7 @@ h2{
     display: flex;
     justify-content: right;
 
+}
+.slider{
+    height: 236px;
 }
