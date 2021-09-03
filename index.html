@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="weather.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand">Todays Weather</a>
+          
+            <input class="form-control input1 mr-auto" type="text" placeholder="Search city" id="place">
+            <button class="btn btn-outline-success me-auto btn1" onclick="fetchweather()">Search</button>
+         
+        </div>
+      </nav>
+    </div>
+
+
+   <div class="container mt-5 div1" id="div1">
+       <div class="row">
+           <div class="col-3 col-sm-2 col-md-2 col-lg-2 align">
+            <div><img src=""  id="icon"></div>
+           </div>
+           <div class="col-9 col-sm-5 col-md-5 col-lg-5 align">
+            
+            <div class="place"><span id="showplace"></span></div>
+            <div class="degree"><span id="degree"> </span></div>
+            <div class="feels"><span id="feels"></span></div>
+
+           </div >
+           <div class="col-sm-12 col-md-5 col-lg-5 align1 mt-4" id="map">
+            <div class="row ">
+                <div class="col-6">
+                    <span id="humidity"></span>
+                </div>
+                <div class="col-6">
+                    <span id="pressure"> </span>
+                </div>
+                <div class="col-6">
+                    <span id="temp_min"></span>
+                </div>
+                <div class="col-6">
+                    <span id="temp_max"></span>
+                </div>
+            </div>
+            
+
+           </div>
+
+       </div>
+   </div>
+</body>
+<script>
+    function fetchweather() {
+        document.getElementById("div1").style.backgroundColor = "lightblue";
+        let place_name = place.value;
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${place_name}&units=metric&&appid=49b419cc902e72f7d9cc923435f39b9b`
+
+        fetch(url).then(res => res.json()).then(data => {
+            degree.innerHTML = `${data.main.temp}°C`
+            showplace.innerHTML=`${data.name},${data.sys.country}`
+            feels.innerHTML=`Feels like${data.main.temp}°C. ${data.weather[0].description}`
+            humidity.innerHTML=`Humidity: ${data.main.humidity}`
+            pressure.innerHTML=`Pressure: ${data.main.pressure}`
+            temp_max.innerHTML=`Max Temp: ${data.main.temp_max}`
+            temp_min.innerHTML=`Min Temp: ${data.main.temp_min}`
+            let w_icon= data.weather[0].icon
+            icon.src=`http://openweathermap.org/img/w/${w_icon}.png`;
+            
+            
+
+        }
+        
+        )
+         
+     
+    }
+
+</script>
+
+</html>

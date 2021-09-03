@@ -1,0 +1,40 @@
+body{
+    background-image: url(https://png.pngtree.com/thumb_back/fw800/back_our/20190625/ourmid/pngtree-general-weather-sky-image_260454.jpg);
+    background-repeat: no-repeat, repeat;  
+  
+    background-size: cover;
+    height: 725px;
+} 
+
+.input1{
+    width: 30%;  
+}
+.btn1{
+    margin-left: 2px;
+}
+.degree{
+    font-size: 36px;
+font-weight: 600;
+}
+.place{
+    font-size: 25px;
+    font-weight: 500;
+}
+.feels{
+    font-weight: 500;
+}
+.align{
+    display: block;
+    margin: auto;
+    align-content: center;
+  
+}
+.div1{
+    padding: 2.5%;
+}
+.align1{
+    display: block;
+    margin: auto;
+    align-content: center;
+    
+}
